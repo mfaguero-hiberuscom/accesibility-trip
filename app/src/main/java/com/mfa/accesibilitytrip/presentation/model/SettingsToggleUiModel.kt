@@ -10,6 +10,12 @@ data class SettingsToggleUiModel(
         fun mockList(): List<SettingsToggleUiModel> {
             return listOf(
                 SettingsToggleUiModel(
+                    id = "dark-mode",
+                    title = "Modo oscuro",
+                    description = "Cambia entre el tema claro y oscuro de la aplicación.",
+                    enabled = false,
+                ),
+                SettingsToggleUiModel(
                     id = "spoken-updates",
                     title = "Anuncios hablados",
                     description = "Lee cambios importantes del viaje cuando una tarjeta se actualiza o desaparece.",
