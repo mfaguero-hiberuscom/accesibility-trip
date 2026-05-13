@@ -18,7 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.model.SettingsToggleUiModel
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 
 @Composable
@@ -64,6 +67,26 @@ internal fun SettingRow(
                     checkedThumbColor = MaterialTheme.colorScheme.onPrimary,
                     checkedTrackColor = MaterialTheme.colorScheme.primary,
                 ),
+            )
+        }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun SettingRowPreview() {
+    DSTheme {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            SettingRow(
+                toggle = PreviewData.enabledToggle,
+                onToggle = {},
+            )
+            SettingRow(
+                toggle = PreviewData.disabledToggle,
+                onToggle = {},
             )
         }
     }

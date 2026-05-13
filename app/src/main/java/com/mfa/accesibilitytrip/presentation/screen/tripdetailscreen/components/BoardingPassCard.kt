@@ -26,8 +26,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
 import com.mfa.accesibilitytrip.presentation.designsystem.Manrope
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun BoardingPassCard() {
@@ -106,5 +108,13 @@ internal fun BoardingPassCard() {
                 modifier = Modifier.padding(top = 8.dp),
             )
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun BoardingPassCardPreview() {
+    DSTheme {
+        BoardingPassCard()
     }
 }

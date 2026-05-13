@@ -27,11 +27,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.CollectionItemInfo
 import androidx.compose.ui.semantics.collectionItemInfo
+import androidx.compose.ui.semantics.customActions
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
 import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 import com.mfa.accesibilitytrip.presentation.screen.commoncomponents.TravelTypeBadge
 
 @Composable
@@ -41,6 +45,7 @@ internal fun TripOverviewCard(
     modifier: Modifier = Modifier,
     index: Int? = null,
     action: (@Composable () -> Unit)? = null,
+    swipeToDelete: () -> Unit = {}
 ) {
     val extendedColors = DSThemeDefaults.extendedColors
     val cardModifier = modifier
@@ -56,6 +61,17 @@ internal fun TripOverviewCard(
                         columnIndex = 0,
                         columnSpan = 1,
                     )
+
+                    customActions = listOf(
+                        androidx.compose.ui.semantics.CustomAccessibilityAction(
+                            label = "Desliza para borrar",
+                            action = {
+                                swipeToDelete()
+                                true
+                            }
+                        )
+                    )
+
                 }
             },
         )
@@ -175,3 +191,22 @@ internal fun TripOverviewCard(
     }
 }
 
+@ThemePreviews
+@Composable
+private fun TripOverviewCardPreview() {
+    DSTheme {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            TripOverviewCard(
+                trip = PreviewData.favoriteTrip,
+                onClick = {},
+            )
+            TripOverviewCard(
+                trip = PreviewData.regularTrip,
+                onClick = null,
+            )
+        }
+    }
+}

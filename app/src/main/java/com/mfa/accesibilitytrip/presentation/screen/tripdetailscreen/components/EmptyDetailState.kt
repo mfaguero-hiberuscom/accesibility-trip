@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun EmptyDetailState() {
@@ -39,5 +41,13 @@ internal fun EmptyDetailState() {
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun EmptyDetailStatePreview() {
+    DSTheme {
+        EmptyDetailState()
     }
 }

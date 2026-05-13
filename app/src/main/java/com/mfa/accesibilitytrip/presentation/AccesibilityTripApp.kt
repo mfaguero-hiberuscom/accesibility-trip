@@ -10,9 +10,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -50,6 +52,7 @@ import com.mfa.accesibilitytrip.presentation.navigation.CatalogRoute
 import com.mfa.accesibilitytrip.presentation.navigation.FavoriteTripsRoute
 import com.mfa.accesibilitytrip.presentation.navigation.SettingsRoute
 import com.mfa.accesibilitytrip.presentation.navigation.TripDetailRoute
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 import com.mfa.accesibilitytrip.presentation.screen.catalogscreen.CatalogScreen
 import com.mfa.accesibilitytrip.presentation.screen.favoritetripsscreen.FavoriteTripsScreen
 import com.mfa.accesibilitytrip.presentation.screen.settingsscreen.SettingsScreen
@@ -292,5 +295,31 @@ private fun AccesibilityTripAppPreview() {
             tripsViewModel = TripsViewModel(),
             settingsViewModel = SettingsViewModel(),
         )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun PluJourneyTopBarPreview() {
+    DSTheme {
+        PluJourneyTopBar()
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun PluJourneyBottomBarPreview() {
+    DSTheme {
+        Column {
+            PluJourneyBottomBar(
+                selectedDestination = TopLevelDestination.FAVORITES,
+                onDestinationSelected = {},
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            PluJourneyBottomBar(
+                selectedDestination = TopLevelDestination.SETTINGS,
+                onDestinationSelected = {},
+            )
+        }
     }
 }

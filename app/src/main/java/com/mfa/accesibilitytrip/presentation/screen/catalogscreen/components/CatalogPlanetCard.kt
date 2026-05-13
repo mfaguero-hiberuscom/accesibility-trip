@@ -31,8 +31,11 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
 import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun CatalogPlanetCard(
@@ -137,6 +140,28 @@ internal fun CatalogPlanetCard(
                     }
                 }
             }
+        }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun CatalogPlanetCardPreview() {
+    DSTheme {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            CatalogPlanetCard(
+                trip = PreviewData.favoriteTrip,
+                onClick = {},
+                onToggleFavorite = {},
+            )
+            CatalogPlanetCard(
+                trip = PreviewData.regularTrip,
+                onClick = {},
+                onToggleFavorite = {},
+            )
         }
     }
 }

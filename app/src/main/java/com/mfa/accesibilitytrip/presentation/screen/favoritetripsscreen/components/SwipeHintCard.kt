@@ -18,6 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun SwipeHintCard() {
@@ -44,5 +46,13 @@ internal fun SwipeHintCard() {
                 color = MaterialTheme.colorScheme.onSurface,
             )
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun SwipeHintCardPreview() {
+    DSTheme {
+        SwipeHintCard()
     }
 }

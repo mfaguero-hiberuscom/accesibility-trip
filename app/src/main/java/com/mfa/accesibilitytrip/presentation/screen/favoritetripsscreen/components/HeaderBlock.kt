@@ -11,7 +11,9 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 
 @Composable
@@ -29,5 +31,13 @@ internal fun HeaderBlock(favoriteCount: Int) {
             style = MaterialTheme.typography.labelLarge,
             color = DSThemeDefaults.extendedColors.subtitleAccent,
         )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun HeaderBlockPreview() {
+    DSTheme {
+        HeaderBlock(favoriteCount = 3)
     }
 }

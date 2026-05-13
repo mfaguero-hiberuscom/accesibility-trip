@@ -1,5 +1,7 @@
 package com.mfa.accesibilitytrip.presentation.screen.commoncomponents
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -10,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
 import com.mfa.accesibilitytrip.presentation.model.TravelTypeUiModel
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun TravelTypeBadge(
@@ -44,5 +48,19 @@ internal fun TravelTypeBadge(
             ),
             color = textColor,
         )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun TravelTypeBadgePreview() {
+    DSTheme {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            TravelTypeBadge(travelType = TravelTypeUiModel.HYPERLUMINOUS)
+            TravelTypeBadge(travelType = TravelTypeUiModel.NORMAL)
+        }
     }
 }

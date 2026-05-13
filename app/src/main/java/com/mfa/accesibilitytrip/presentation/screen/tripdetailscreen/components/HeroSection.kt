@@ -27,9 +27,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.HankenGrotesk
 import com.mfa.accesibilitytrip.presentation.designsystem.Manrope
 import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 import com.mfa.accesibilitytrip.presentation.screen.commoncomponents.TravelTypeBadge
 
 @Composable
@@ -133,5 +136,13 @@ internal fun HeroSection(trip: TripCardUiModel) {
                 )
             }
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun HeroSectionPreview() {
+    DSTheme {
+        HeroSection(trip = PreviewData.favoriteTrip)
     }
 }

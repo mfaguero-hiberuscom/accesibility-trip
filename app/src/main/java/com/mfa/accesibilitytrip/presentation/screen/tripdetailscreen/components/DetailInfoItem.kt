@@ -8,9 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
 import com.mfa.accesibilitytrip.presentation.designsystem.HankenGrotesk
 import com.mfa.accesibilitytrip.presentation.designsystem.Manrope
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun DetailInfoItem(
@@ -36,6 +38,18 @@ internal fun DetailInfoItem(
                 fontWeight = FontWeight.Bold,
             ),
             color = valueColor,
+        )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun DetailInfoItemPreview() {
+    DSTheme {
+        DetailInfoItem(
+            label = "Asiento",
+            value = "14A",
+            valueColor = DSThemeDefaults.extendedColors.priceColor,
         )
     }
 }

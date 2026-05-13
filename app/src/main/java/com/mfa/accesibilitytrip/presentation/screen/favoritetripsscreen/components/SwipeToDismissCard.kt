@@ -22,9 +22,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.customActions
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
 import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,6 +86,20 @@ internal fun SwipeToDismissCard(
             trip = trip,
             index = index,
             onClick = onClick,
+            swipeToDelete = onSwipeToDelete,
+        )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun SwipeToDismissCardPreview() {
+    DSTheme {
+        SwipeToDismissCard(
+            trip = PreviewData.favoriteTrip,
+            index = 0,
+            onClick = {},
+            onSwipeToDelete = {},
         )
     }
 }

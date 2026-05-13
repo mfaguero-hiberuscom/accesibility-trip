@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,6 +19,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun EmptyFavoritesState(
@@ -49,5 +52,17 @@ internal fun EmptyFavoritesState(
                 textAlign = TextAlign.Center
             )
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun EmptyFavoritesStatePreview() {
+    DSTheme {
+        EmptyFavoritesState(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(220.dp),
+        )
     }
 }

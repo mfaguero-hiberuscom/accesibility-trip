@@ -1,7 +1,9 @@
 package com.mfa.accesibilitytrip.presentation.screen.tripdetailscreen.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -13,8 +15,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.HankenGrotesk
 import com.mfa.accesibilitytrip.presentation.designsystem.Manrope
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun InfoChip(
@@ -47,6 +51,28 @@ internal fun InfoChip(
                     fontSize = 17.sp,
                 ),
                 color = valueColor,
+            )
+        }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun InfoChipPreview() {
+    DSTheme {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            InfoChip(
+                label = "Estado",
+                value = "Confirmado",
+                valueColor = Color(0xFFFFD500),
+            )
+            InfoChip(
+                label = "Reserva",
+                value = "LX-08341",
+                valueColor = Color(0xFFE5E2E1),
             )
         }
     }

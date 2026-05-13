@@ -1,13 +1,23 @@
 package com.mfa.accesibilitytrip.presentation.screen.catalogscreen.components
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun PlanetImagePlaceholder(
@@ -44,5 +54,29 @@ internal fun PlanetImagePlaceholder(
             radius = size.minDimension * 0.35f,
             center = Offset(size.width * 0.6f, size.height * 0.4f),
         )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun PlanetImagePlaceholderPreview() {
+    DSTheme {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            PlanetImagePlaceholder(
+                planetName = PreviewData.favoriteTrip.destination,
+                modifier = Modifier
+                    .size(112.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+            )
+            PlanetImagePlaceholder(
+                planetName = PreviewData.regularTrip.destination,
+                modifier = Modifier
+                    .size(112.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+            )
+        }
     }
 }

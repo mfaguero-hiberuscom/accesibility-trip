@@ -23,10 +23,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.designsystem.DSThemeDefaults
 import com.mfa.accesibilitytrip.presentation.designsystem.HankenGrotesk
 import com.mfa.accesibilitytrip.presentation.designsystem.Manrope
 import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 internal fun ScheduleCard(trip: TripCardUiModel) {
@@ -170,5 +173,13 @@ internal fun ScheduleCard(trip: TripCardUiModel) {
                 )
             }
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun ScheduleCardPreview() {
+    DSTheme {
+        ScheduleCard(trip = PreviewData.favoriteTrip)
     }
 }

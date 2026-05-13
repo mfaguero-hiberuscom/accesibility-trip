@@ -2,9 +2,11 @@ package com.mfa.accesibilitytrip.presentation.screen.tripdetailscreen.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -26,7 +28,10 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.dp
 import com.mfa.accesibilitytrip.R
+import com.mfa.accesibilitytrip.presentation.designsystem.DSTheme
 import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
+import com.mfa.accesibilitytrip.presentation.preview.PreviewData
+import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 
 @Composable
 fun FavoritePlanetButton(
@@ -99,6 +104,32 @@ fun FavoritePlanetButton(
                 text = stringResource(labelRes),
                 style = MaterialTheme.typography.titleMedium,
                 color = contentColor,
+            )
+        }
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun FavoritePlanetButtonPreview() {
+    DSTheme {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            FavoritePlanetButton(
+                trip = PreviewData.favoriteTrip,
+                onToggleFavorite = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+            )
+            FavoritePlanetButton(
+                trip = PreviewData.regularTrip,
+                onToggleFavorite = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
             )
         }
     }
