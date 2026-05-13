@@ -38,6 +38,7 @@
     <string name="detail_status_label">ESTADO</string>
     <string name="detail_status_confirmed">Confirmado</string>
     <string name="detail_reservation_label">RESERVA</string>
+    <string name="detail_hero_content_description">Viaje %1$s de %2$s a %3$s. Nave %4$s. Próxima salida %5$s. Duración %6$s. Precio %7$s. Estado %8$s. Reserva %9$s.</string>
     <string name="detail_departure_label">SALIDA</string>
     <string name="detail_arrival_label">LLEGADA</string>
     <string name="detail_passenger_label">PASAJERO</string>

@@ -135,7 +135,7 @@ internal fun CatalogPlanetCard(
                     ) {
                         Text(
                             text = stringResource(R.string.catalog_reserve),
-                            style = MaterialTheme.typography.titleMedium,
+                            style = MaterialTheme.typography.titleSmall,
                         )
                     }
                 }

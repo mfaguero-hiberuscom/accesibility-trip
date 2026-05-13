@@ -21,6 +21,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -34,11 +36,30 @@ import com.mfa.accesibilitytrip.presentation.model.TripCardUiModel
 import com.mfa.accesibilitytrip.presentation.preview.PreviewData
 import com.mfa.accesibilitytrip.presentation.preview.ThemePreviews
 import com.mfa.accesibilitytrip.presentation.screen.commoncomponents.TravelTypeBadge
+import java.util.Locale
 
 @Composable
 internal fun HeroSection(trip: TripCardUiModel) {
+    val reservationCode = "LX-${(trip.id.hashCode() and 0xFFFF).toString().padStart(5, '0')}"
+    val heroDescription = stringResource(
+        R.string.detail_hero_content_description,
+        stringResource(trip.travelType.labelRes).lowercase(Locale.getDefault()),
+        trip.origin,
+        trip.destination,
+        trip.vehicleName,
+        trip.nextDeparture,
+        trip.duration,
+        trip.price,
+        stringResource(R.string.detail_status_confirmed).lowercase(Locale.getDefault()),
+        reservationCode,
+    )
+
     Box(
         modifier = Modifier
+            .clearAndSetSemantics {
+                heading()
+                contentDescription = heroDescription
+            }
             .fillMaxWidth()
             .height(280.dp)
             .clip(RoundedCornerShape(12.dp)),
@@ -131,7 +152,7 @@ internal fun HeroSection(trip: TripCardUiModel) {
                 )
                 InfoChip(
                     label = stringResource(R.string.detail_reservation_label),
-                    value = "LX-${(trip.id.hashCode() and 0xFFFF).toString().padStart(5, '0')}",
+                    value = reservationCode,
                     valueColor = Color(0xFFE5E2E1),
                 )
             }
