@@ -15,13 +15,22 @@ data class TripCardUiModel(
     val isFavorite: Boolean = false,
 ) {
     companion object {
+        private val MONTH_ABBR = listOf(
+            "ene.", "feb.", "mar.", "abr.", "may.", "jun.",
+            "jul.", "ago.", "sep.", "oct.", "nov.", "dic.",
+        )
+
+        private fun formatDate(day: Int, month: Int, year: Int): String {
+            return "$day ${MONTH_ABBR[month - 1]} $year"
+        }
+
         fun mockCatalog(): List<TripCardUiModel> {
             val featuredTrips = listOf(
                 TripCardUiModel(
                     id = "tierra-marte",
                     origin = "Tierra",
                     destination = "Marte",
-                    nextDeparture = "20/3/2140",
+                    nextDeparture = formatDate(20, 3, 2140),
                     price = "3.200 cr",
                     travelType = TravelTypeUiModel.HYPERLUMINOUS,
                     duration = "2 h 15 min",
@@ -32,7 +41,7 @@ data class TripCardUiModel(
                     id = "europa-titan",
                     origin = "Europa",
                     destination = "Titán",
-                    nextDeparture = "22/3/2140",
+                    nextDeparture = formatDate(22, 3, 2140),
                     price = "1.860 cr",
                     travelType = TravelTypeUiModel.NORMAL,
                     duration = "18 h 00 min",
@@ -43,7 +52,7 @@ data class TripCardUiModel(
                     id = "venus-encelado",
                     origin = "Venus",
                     destination = "Encélado",
-                    nextDeparture = "01/4/2140",
+                    nextDeparture = formatDate(1, 4, 2140),
                     price = "2.480 cr",
                     travelType = TravelTypeUiModel.HYPERLUMINOUS,
                     duration = "4 h 10 min",
@@ -97,7 +106,7 @@ data class TripCardUiModel(
                     id = "trip-$index-${origin.lowercase()}-${destination.lowercase()}",
                     origin = origin,
                     destination = destination,
-                    nextDeparture = "$departureDay/$departureMonth/2140",
+                    nextDeparture = formatDate(departureDay, departureMonth, 2140),
                     price = "${credits / 1000}.${(credits % 1000).toString().padStart(3, '0')} cr",
                     travelType = if (index % 3 == 0) {
                         TravelTypeUiModel.HYPERLUMINOUS
